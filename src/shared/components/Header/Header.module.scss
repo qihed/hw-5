@@ -1,0 +1,116 @@
+@use 'styles/variables' as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 2px solid #f3f3f3;
+  width: 100%;
+  min-height: 80px;
+  background-color: #ffffff;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+    height: 80px;
+  }
+}
+
+.namePages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  height: 100%;
+
+  @include md {
+    gap: 48px;
+    padding-right: 13px;
+  }
+}
+
+.actionBtn {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  @include md {
+    gap: 24px;
+  }
+}
+
+.text {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+
+  @include md {
+    font-size: 18px;
+  }
+}
+
+.productsLink {
+  text-decoration: none;
+}
+
+.textAccent {
+  color: $brand;
+  font-weight: 600;
+}
+
+.textAccent::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 2px;
+  background: $brand;
+}
+
+.logoFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.bagLink {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bag {
+  width: 24px;
+  height: 24px;
+
+  @include md {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.user {
+  width: 24px;
+  height: 24px;
+
+  @include md {
+    width: 30px;
+    height: 30px;
+  }
+}

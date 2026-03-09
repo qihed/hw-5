@@ -1,0 +1,115 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include md {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  @include lg {
+    gap: 48px;
+  }
+}
+
+.imgItem {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+
+  @include sm {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+
+  @include md {
+    width: 400px;
+    max-width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+  }
+
+  @include lg {
+    width: 600px;
+    height: 600px;
+    max-width: 600px;
+  }
+}
+
+.imgItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include md {
+    gap: 40px;
+  }
+
+  @include lg {
+    gap: 48px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 8px;
+
+  @include md {
+    gap: 24px;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+
+  @include md {
+    gap: 40px;
+    padding-top: 32px;
+  }
+
+  @include lg {
+    gap: 48px;
+  }
+}
+
+.btnFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include sm {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  @include md {
+    gap: 48px;
+  }
+}
+
+.btnCart {
+  background-color: $brand;
+  border: 1px solid #afadb5;
+  color: black;
+}
+
+.btnCart:hover {
+  background-color: $brand-hover;
+  color: white;
+}

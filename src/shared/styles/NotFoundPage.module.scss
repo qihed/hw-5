@@ -1,0 +1,36 @@
+// Стили для страницы 404 (app/not-found.tsx)
+@use 'styles/variables' as *;
+
+.container {
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: $space-xxs;
+}
+
+.text {
+  margin-top: 20px;
+}
+
+.linkButton {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: $brand;
+  color: $brand-white;
+  text-decoration: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $brand-hover;
+  }
+}
+

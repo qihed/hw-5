@@ -1,0 +1,72 @@
+@use 'styles/variables' as *;
+
+.text {
+  font-family: 'Roboto', sans-serif;
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  &.textViewButton {
+    font-size: 18px;
+    font-style: normal;
+  }
+
+  &.textViewTitle {
+    font-size: 44px;
+    font-weight: 700;
+    font-style: bold;
+  }
+
+  &.textViewP20 {
+    font-size: 20px;
+  }
+
+  &.textViewP18 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  &.textViewP16 {
+    font-size: 16px;
+  }
+
+  &.textViewP14 {
+    font-size: 14px;
+  }
+
+  &.textNormal {
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  &.textMedium {
+    font-weight: 500;
+    font-style: medium;
+  }
+
+  &.textBold {
+    font-weight: 700;
+    font-style: bold;
+  }
+
+  &.textColorPrimary {
+    color: #000000;
+  }
+
+  &.textColorSecondary {
+    color: #afadb5;
+  }
+
+  &.textColorAccent {
+    color: #518581;
+  }
+
+  &.textClamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--text-lines, 1);
+    line-clamp: var(--text-lines, 1);
+    overflow: hidden;
+  }
+}

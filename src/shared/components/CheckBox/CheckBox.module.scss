@@ -1,0 +1,57 @@
+@use 'styles/variables' as *;
+
+.checkboxWrap {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 1px solid transparent;
+  background-color: $brand-white;
+  cursor: pointer;
+}
+
+.checkboxWrap:hover .checkbox {
+  border-color: $brand;
+}
+
+.checkbox:disabled {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: default;
+}
+
+.checkboxWrap .checkbox:disabled + .checkboxIcon,
+.checkboxWrap .checkboxIconDisabled {
+  color: #c4c4c4;
+}
+
+.checkbox:disabled:hover {
+  border-color: transparent;
+}
+
+.checkboxWrap:hover .checkbox:disabled {
+  border-color: transparent;
+}
+
+.checkboxIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $brand;
+  pointer-events: none;
+}
+
+.checkboxIconDisabled {
+  color: #c4c4c4;
+}
