@@ -1,0 +1,18 @@
+@use 'styles/variables' as *;
+
+.icon {
+  width: var(--w-icon);
+  height: var(--h-icon);
+
+  &.iconPrimary {
+    color: #000000;
+  }
+
+  &.iconSecondary {
+    color: #afadb5;
+  }
+
+  &.iconAccent {
+    color: #518581;
+  }
+}

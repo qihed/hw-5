@@ -1,0 +1,31 @@
+html,
+body {
+  font-family: 'Roboto';
+  margin: 0px;
+  padding: 0;
+  background-color: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+pre {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}

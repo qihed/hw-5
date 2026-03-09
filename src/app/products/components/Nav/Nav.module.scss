@@ -1,0 +1,57 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 48px;
+
+  @include md {
+    gap: 12px;
+    padding-bottom: 80px;
+  }
+
+  @include lg {
+    padding-bottom: 113px;
+  }
+}
+
+.link,
+.linkActive {
+  text-decoration: none;
+  color: inherit;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.start {
+  transform: rotate(180deg);
+}
+
+.block {
+  opacity: 0.8;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+
+  @include md {
+    font-size: 18px;
+  }
+}
+
+.textAccent {
+  background-color: $brand;
+  color: #ffffff;
+}

@@ -1,0 +1,25 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 40px;
+
+  @include md {
+    gap: 30px;
+    padding-bottom: 55px;
+  }
+
+  @include lg {
+    padding-bottom: 65px;
+  }
+}
+
+.cardLink {
+  display: flex;
+  min-width: 0;
+}

@@ -1,0 +1,120 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  width: 100%;
+  gap: $space-xl;
+  margin-bottom: 24px;
+
+  @include sm {
+    padding: 0 24px;
+  }
+
+  @include md {
+    padding: 0 40px;
+    margin-bottom: 30px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+    margin-bottom: 35px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.fieldSearch {
+  display: flex;
+  flex-direction: column;
+  gap: $space-m;
+  width: 100%;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: $space-xl;
+  }
+}
+
+.input {
+  flex: 1;
+}
+
+.clearSearchBtn {
+  flex-shrink: 0;
+  background-color: #e04141;
+  color: #fff;
+  border: 1px solid #e04141;
+
+  &:hover {
+    background-color: #e65c5c;
+    border-color: #e65c5c;
+  }
+}
+
+.filtersRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-m;
+  width: 100%;
+
+  @include md {
+    gap: $space-l;
+  }
+}
+
+.dropdown {
+  align-self: flex-start;
+}
+
+.clearBtn {
+  align-self: flex-start;
+  background-color: #e04141;
+  color: #fff;
+  border: 1px solid #e04141;
+
+  &:hover {
+    background-color: #e65c5c;
+    border-color: #e65c5c;
+  }
+}
+
+.numFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  padding-top: 16px;
+  gap: $space-l;
+
+  @include md {
+    padding-top: 24px;
+    gap: $space-xl;
+  }
+}
+
+.text {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: bold;
+
+  @include md {
+    font-size: 28px;
+  }
+
+  @include lg {
+    font-size: 32px;
+  }
+}
+
+.textNum {
+  font-weight: 700;
+  font-style: bold;
+  color: $brand;
+}
