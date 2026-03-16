@@ -4,8 +4,14 @@ import { LocalStorageModel } from 'store/LocalStorageModel';
 const AUTH_TOKEN_KEY = 'auth_token';
 const AUTH_USER_KEY = 'auth_user';
 
+
+type StrapiUser = {
+  username: string;
+  email: string;
+};
+
 type AuthResponse = {
-  user: string;
+  user: StrapiUser;
   jwt: string;
 };
 
@@ -40,7 +46,7 @@ export async function register(username: string, email: string, password: string
     password: password,
   });
   setToken(data.jwt);
-  setStoredUser(data.user);
+  setStoredUser(data.user.username);
   return data.user;
 }
 
@@ -50,7 +56,7 @@ export async function login(email: string, password: string) {
     password: password,
   });
   setToken(data.jwt);
-  setStoredUser(data.user);
+  setStoredUser(data.user.username);
   return data.user;
 }
 

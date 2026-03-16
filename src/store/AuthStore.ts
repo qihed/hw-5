@@ -69,9 +69,9 @@ export class AuthStore {
     try {
       const user = await login(this.email, this.password);
       runInAction(() => {
-        this.user = user;
+        this.user = user.username;
         if (!this.nickname) {
-          this.nickname = user;
+          this.nickname = user.username;
         }
         if (!this.profileEmail) {
           this.profileEmail = this.email;
