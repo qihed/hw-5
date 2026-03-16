@@ -1,7 +1,3 @@
-/**
- * Страница 404: несуществующий маршрут или вызов notFound() в коде.
- * Стили из shared-модуля, без инлайнов.
- */
 import Link from 'next/link';
 import styles from 'styles/NotFoundPage.module.scss';
 

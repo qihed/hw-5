@@ -1,1 +1,1 @@
-export const CART_KEY = 'cart';
+export const PROFILE_KEY = 'user_profile';

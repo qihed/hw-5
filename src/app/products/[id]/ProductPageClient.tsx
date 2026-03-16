@@ -1,7 +1,3 @@
-/**
- * Клиентская оболочка страницы товара.
- * Товар приходит уже с сервера (initialProduct); здесь только подгружаем «похожие» и рисуем UI.
- */
 'use client';
 
 import { useEffect, useMemo } from 'react';
@@ -16,7 +12,6 @@ import styles from './product-page.module.scss';
 import Text from 'components/Text';
 import ProductCardList from 'components/ProductCardList';
 import SkeletonCard from 'components/Skeleton';
-import Header from 'components/Header';
 import ProductDetails from './components/ProductDetails';
 
 type ProductPageClientProps = {
@@ -27,15 +22,13 @@ const ProductPageClient = observer(({ initialProduct }: ProductPageClientProps) 
   const pageStore = useMemo(() => new ProductPageStore(), []);
 
   useEffect(() => {
-    pageStore.setProduct(initialProduct); // подставляем товар с сервера, без повторного запроса
+    pageStore.setProduct(initialProduct);
     pageStore.loadSimilar(3);
     return () => pageStore.destroy();
   }, [initialProduct, pageStore]);
 
   return (
-    <>
-      <Header />
-      <ProductPageStoreProvider store={pageStore}>
+    <ProductPageStoreProvider store={pageStore}>
         <div className={styles.container}>
           <Link href="/products" className={styles.back}>
             <Image
@@ -64,7 +57,6 @@ const ProductPageClient = observer(({ initialProduct }: ProductPageClientProps) 
           </div>
         </div>
       </ProductPageStoreProvider>
-    </>
   );
 });
 

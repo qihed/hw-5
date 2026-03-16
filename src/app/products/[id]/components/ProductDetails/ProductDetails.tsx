@@ -1,9 +1,8 @@
-/**
- * Блок с деталями товара на странице продукта. Картинка через next/image.
- */
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'next/navigation';
 import Button from 'components/Button';
@@ -13,9 +12,12 @@ import styles from './product-details.module.scss';
 import { getProductImageUrl, DEFAULT_PRODUCT_IMAGE } from 'api/products';
 import ProductDetailsSkeleton from './ProductDetailsSkeleton';
 import { useProductPageStore } from '../../ProductPageContext';
+import { createOrderFromItems } from 'lib/ordersStorage';
 
 const ProductDetails = () => {
+  const router = useRouter();
   const params = useParams();
+  const [buyingNow, setBuyingNow] = useState(false);
   const id = params?.id as string | undefined;
   const store = useProductPageStore();
   const product = store.product;
@@ -46,6 +48,23 @@ const ProductDetails = () => {
 
   const imageUrl = getProductImageUrl(product) ?? DEFAULT_PRODUCT_IMAGE;
 
+  const handleBuyNow = () => {
+    setBuyingNow(true);
+    try {
+      createOrderFromItems([
+        {
+          name: product.title,
+          quantity: 1,
+          price: product.price,
+          image: imageUrl,
+        },
+      ]);
+      router.push('/profile/orders');
+    } finally {
+      setBuyingNow(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.imgItem}>
@@ -53,7 +72,7 @@ const ProductDetails = () => {
           src={imageUrl}
           alt={product.title}
           fill
-          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 375px, 400px, 600px"
+          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 375px, 600px"
         />
       </div>
 
@@ -68,10 +87,12 @@ const ProductDetails = () => {
         <div className={styles.action}>
           <Text view="title">{product.price}₽</Text>
           <div className={styles.btnFrame}>
-            <Button>Buy Now</Button>
+            <Button type="button" onClick={handleBuyNow} disabled={buyingNow}>
+              {buyingNow ? 'Processing...' : 'Buy Now'}
+            </Button>
             {/* Единый addLabel по проекту (дефолт «В корзину»), без дублирования по языкам */}
             <CartQuantityControl
-              productId={product.documentId}
+              productId={product.id}
               buttonClassName={styles.btnCart}
             />
           </div>

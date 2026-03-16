@@ -11,7 +11,7 @@ export const LocalStorageModel = {
     try {
       localStorage.setItem(key, value);
     } catch {
-      // ignore
+      return;
     }
   },
 
@@ -19,7 +19,7 @@ export const LocalStorageModel = {
     try {
       localStorage.removeItem(key);
     } catch {
-      // ignore
+      return;
     }
   },
 
@@ -36,7 +36,7 @@ export const LocalStorageModel = {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      // ignore
+      return;
     }
   },
 };

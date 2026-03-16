@@ -7,6 +7,7 @@ import Card from 'components/Card';
 import type { Product } from 'api/types';
 import { getProductImageUrl, getProductCategoryName, DEFAULT_PRODUCT_IMAGE } from 'api/products';
 import CartQuantityControl from 'components/CartQuantityControl';
+import { createDraggableHandlers, DRAGGABLE_PRODUCT_ATTR } from 'lib/dragDrop';
 
 export type ProductCardListProps = {
   products: Product[];
@@ -34,13 +35,17 @@ const ProductCardList = ({ products, loading = false, error = null }: ProductCar
   return (
     <div className={styles.container}>
       {products.map((product) => (
-        <Link
+        <div
           key={product.documentId}
-          href={`/products/${product.documentId}`}
           className={styles.cardLink}
-          style={{ textDecoration: 'none', color: 'inherit' }}
+          {...{ [DRAGGABLE_PRODUCT_ATTR]: true }}
+          {...createDraggableHandlers(product, 'product')}
         >
-          <Card
+          <Link
+            href={`/products/${product.documentId}`}
+            style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flex: 1, minWidth: 0 }}
+          >
+            <Card
             image={getProductImageUrl(product) || DEFAULT_PRODUCT_IMAGE}
             captionSlot={getProductCategoryName(product) || null}
             title={product.title}
@@ -48,13 +53,14 @@ const ProductCardList = ({ products, loading = false, error = null }: ProductCar
             contentSlot={<>{product.price}₽</>}
             actionSlot={
               <CartQuantityControl
-                productId={product.documentId}
+                productId={product.id}
                 stopLinkNavigation
-                addLabel="В корзину"
+                addLabel="In cart"
               />
             }
           />
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );

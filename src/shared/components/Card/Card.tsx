@@ -1,6 +1,3 @@
-/**
- * Карточка товара. Картинка через next/image (fill + sizes) для оптимизации.
- */
 import React from 'react';
 import Image from 'next/image';
 import Text from 'components/Text';

@@ -7,7 +7,7 @@ import { useStore } from 'store/StoreContext';
 import styles from './CartQuantityControl.module.scss';
 
 export type CartQuantityControlProps = {
-  productId: string;
+  productId: number;
   stopLinkNavigation?: boolean;
   addLabel?: string;
   buttonClassName?: string;
@@ -28,8 +28,16 @@ const CartQuantityControl = ({
   showRemove = false,
   className,
 }: CartQuantityControlProps) => {
-  const { cart } = useStore();
+  const { cart, auth } = useStore();
   const qty = cart.getQuantity(productId);
+
+  const guardAuth = (fn: () => void) => () => {
+    if (!auth.isAuth) {
+      alert('To add items to your cart, please register first.');
+      return;
+    }
+    fn();
+  };
 
   const wrap = (fn: () => void) =>
     stopLinkNavigation
@@ -43,13 +51,13 @@ const CartQuantityControl = ({
     if (qty > 0) cart.setQuantity(productId, qty - 1);
   });
 
-  const handleIncrease = wrap(() => {
+  const handleIncrease = wrap(guardAuth(() => {
     cart.addItem(productId, 1);
-  });
+  }));
 
-  const handleAdd = wrap(() => {
+  const handleAdd = wrap(guardAuth(() => {
     cart.addItem(productId, 1);
-  });
+  }));
 
   const handleRemove = wrap(() => {
     cart.removeItem(productId);

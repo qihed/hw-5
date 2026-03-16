@@ -1,6 +1,6 @@
-import type { ProductCategory, StrapiImage } from 'api/types';
+import type { Product, ProductCategory, StrapiImage } from 'api/types';
 
-// Типы ответа API без index signature — обращение только к объявленным полям, смысл типизации сохраняется
+/** Raw API product type; use normalizeProduct() to get app Product. */
 export type ProductApi = {
   id: number;
   documentId: string;
@@ -14,20 +14,7 @@ export type ProductApi = {
   productCategory?: ProductCategory | { data: ProductCategory };
 };
 
-export type ProductModel = {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  price: number;
-  discountPercent?: number;
-  rating?: number;
-  isInStock: boolean;
-  images?: StrapiImage[];
-  productCategory?: ProductCategory;
-};
-
-export const normalizeProduct = (from: ProductApi): ProductModel => {
+export const normalizeProduct = (from: ProductApi): Product => {
   const images: StrapiImage[] | undefined = Array.isArray(from.images)
     ? from.images
     : from.images &&

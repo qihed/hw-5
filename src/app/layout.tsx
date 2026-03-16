@@ -1,6 +1,3 @@
-/**
- * Корневой layout: глобальные стили, шрифт Roboto (next/font), метаданные, обёртка MobX-провайдером.
- */
 import { Suspense } from "react";
 import { Roboto } from "next/font/google";
 import "./globals.scss";
@@ -23,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en" className={roboto.className} suppressHydrationWarning>
       <body className="antialiased">
         <Providers>
           <Suspense fallback={null}>

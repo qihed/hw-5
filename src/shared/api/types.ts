@@ -23,6 +23,7 @@ export type ProductCategory = {
   [key: string]: unknown;
 };
 
+/** Normalized product type used across the app. For raw API responses, use ProductApi. */
 export type Product = {
   id: number;
   documentId: string;
@@ -32,9 +33,14 @@ export type Product = {
   discountPercent?: number;
   rating?: number;
   isInStock: boolean;
-  images?: StrapiImage[] | { data: StrapiImage[] };
-  productCategory?: ProductCategory | { data: ProductCategory };
-  [key: string]: unknown;
+  images?: StrapiImage[];
+  productCategory?: ProductCategory;
+  material?: string;
+  year?: string;
+  company?: string;
+  model?: string;
+  warranty?: string;
+  deliveryTime?: string;
 };
 
 export type PaginationMeta = {
@@ -60,10 +66,6 @@ export type ProductCategoryResponse = {
 };
 
 export type CartItem = {
-  productId: string;
-  quantity?: number;
-};
-
-export type Cart = {
-  data: CartItem[];
+  productId: number;
+  quantity: number;
 };

@@ -1,0 +1,175 @@
+@use 'styles/variables' as *;
+
+.container {
+  max-width: 800px;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 32px;
+
+  @include md {
+    font-size: 36px;
+  }
+}
+
+.empty {
+  padding: 24px 0;
+}
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.orderCard {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fff;
+}
+
+.orderHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.orderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.orderTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.statusDelivered {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.statusInTransit {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.statusProcessing {
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.orderTotal {
+  text-align: left;
+
+  @include md {
+    text-align: right;
+  }
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid #f3f3f3;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.itemImage {
+  flex-shrink: 0;
+}
+
+.imagePlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+}
+
+.itemImageImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemPrice {
+  flex-shrink: 0;
+}
+
+.orderActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f3f3;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+  }
+}
+
+.actionButtonDelete {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff;
+  color: #dc2626;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fef2f2;
+    border-color: #f87171;
+  }
+}

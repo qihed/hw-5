@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import rootStore from 'store/instance';
+import { useStore } from 'store/StoreContext';
 
 export const useQueryParamsStoreInit = (): void => {
   const searchParams = useSearchParams();
-  const search = searchParams.toString() ? `?${searchParams.toString()}` : '';
+  const store = useStore();
+  const search = searchParams.toString();
 
   useEffect(() => {
-    rootStore.query.setSearch(search);
-  }, [search]);
+    store.query.setSearch(search);
+  }, [search, store]);
 };

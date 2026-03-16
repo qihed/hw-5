@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Input from 'components/Input';
-import ArrowDownIcon from 'components/icons/ArrowDownIcon';
+import ArrowDownIcon from 'icons/ArrowDownIcon';
 import styles from 'components/MultiDropdown/MultiDropdown.module.scss';
 
 export type Option = {

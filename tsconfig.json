@@ -25,6 +25,7 @@
       "store/*": ["./src/store/*"],
       "config/*": ["./src/config/*"],
       "components/*": ["./src/shared/components/*"],
+      "icons/*": ["./src/shared/icons/*"],
       "hooks/*": ["./src/hooks/*"],
       "lib/*": ["./src/lib/*"],
       "styles/*": ["./src/shared/styles/*"]

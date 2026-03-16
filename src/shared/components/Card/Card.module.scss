@@ -88,6 +88,7 @@
 .cardBody {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: $space-s;
   padding: $space-xl $space-s $space-l $space-s;
 }

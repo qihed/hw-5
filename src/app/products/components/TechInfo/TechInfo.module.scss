@@ -69,6 +69,12 @@
   }
 }
 
+.filterIconWrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .dropdown {
   align-self: flex-start;
 }
@@ -82,6 +88,25 @@
   &:hover {
     background-color: #e65c5c;
     border-color: #e65c5c;
+  }
+}
+
+.priceFilter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-m;
+
+  @include md {
+    gap: $space-l;
+  }
+}
+
+.priceInput {
+  width: 100px;
+
+  @include md {
+    width: 120px;
   }
 }
 

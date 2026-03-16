@@ -24,6 +24,11 @@
   color: inherit;
 }
 
+.currentPage {
+  pointer-events: none;
+  cursor: default;
+}
+
 .disabled {
   pointer-events: none;
   opacity: 0.5;

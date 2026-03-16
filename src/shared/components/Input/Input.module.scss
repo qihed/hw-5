@@ -30,6 +30,12 @@
   }
 }
 
+.inputBeforeSlot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .inputAfterSlot {
   display: flex;
   align-items: center;

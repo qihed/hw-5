@@ -1,30 +1,15 @@
-import type { CartItem } from 'api/types';
-import rootStore from 'store/instance';
+import api from 'api/api';
 
-// Тонкие обёртки над store: вся логика корзины в CartStore, здесь только делегирование для API-слоя
-export function getCart(): CartItem[] {
-  return rootStore.cart.items;
+/** Raw HTTP calls for cart. Transformation logic lives in CartStore. */
+export async function fetchCartRaw(): Promise<unknown> {
+  const { data } = await api.get('/cart');
+  return data;
 }
 
-export function addCartItem({ productId, quantity = 1 }: CartItem): boolean {
-  try {
-    rootStore.cart.addItem(productId, quantity);
-    return true;
-  } catch {
-    return false;
-  }
+export async function addCartItem(productId: number, quantity = 1): Promise<void> {
+  await api.post('/cart/add', { product: productId, quantity });
 }
 
-export function editCartItem({ productId, quantity }: CartItem): boolean {
-  try {
-    const qty = quantity ?? 1;
-    if (qty === 0) {
-      rootStore.cart.removeItem(productId);
-    } else {
-      rootStore.cart.setQuantity(productId, qty);
-    }
-    return true;
-  } catch {
-    return false;
-  }
+export async function removeCartItem(productId: number, quantity = 1): Promise<void> {
+  await api.post('/cart/remove', { product: productId, quantity });
 }

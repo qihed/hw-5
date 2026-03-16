@@ -1,8 +1,3 @@
-/**
- * Страница одного товара — серверный компонент.
- * Загружаем товар на сервере; если нет — показываем 404 (notFound).
- * Метаданные (title, description) подставляются из данных товара.
- */
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getProductServer } from './getProduct';
@@ -29,7 +24,7 @@ export default async function ProductPage({ params }: PageProps) {
   const { id } = await params;
   const product = await getProductServer(id);
 
-  if (!product) notFound(); // нет товара — показываем страницу 404
+  if (!product) notFound();
 
   return <ProductPageClient initialProduct={product} />;
 }

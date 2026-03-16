@@ -5,13 +5,15 @@ import styles from 'components/Input/Input.module.scss';
 export type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> & {
   value: string;
   onChange: (value: string) => void;
+  beforeSlot?: React.ReactNode;
   afterSlot?: React.ReactNode;
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ value, onChange, afterSlot, className, ...rest }, ref) => {
+  ({ value, onChange, beforeSlot, afterSlot, className, ...rest }, ref) => {
     return (
       <div className={cn(styles.inputWrapper, className)}>
+        {beforeSlot && <div className={styles.inputBeforeSlot}>{beforeSlot}</div>}
         <input
           ref={ref}
           type="text"

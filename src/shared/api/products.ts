@@ -1,9 +1,7 @@
-import { has, isObservable } from 'mobx';
 import qs from 'qs';
 import api from 'api/api';
 import type {
   Product,
-  ProductCategory,
   ProductResponse,
   ProductCategoryResponse,
   ProductsResponse,
@@ -20,6 +18,7 @@ export type GetProductsParams = {
   populate?: string[];
   search?: string;
   categoryIds?: number[];
+  productIds?: number[];
 };
 
 export async function getProducts(params: GetProductsParams = {}): Promise<ProductsResponse> {
@@ -30,6 +29,7 @@ export async function getProducts(params: GetProductsParams = {}): Promise<Produ
     populate = ['images', 'productCategory'],
     search,
     categoryIds,
+    productIds,
   } = params;
 
   const filters: Record<string, unknown> = {};
@@ -39,6 +39,9 @@ export async function getProducts(params: GetProductsParams = {}): Promise<Produ
   if (categoryIds?.length) {
     filters.productCategory =
       categoryIds.length === 1 ? { id: { $eq: categoryIds[0] } } : { id: { $in: categoryIds } };
+  }
+  if (productIds?.length) {
+    filters.id = productIds.length === 1 ? { $eq: productIds[0] } : { $in: productIds };
   }
 
   const query = qs.stringify(
@@ -50,7 +53,7 @@ export async function getProducts(params: GetProductsParams = {}): Promise<Produ
       ...(sort && { sort }),
       ...(Object.keys(filters).length > 0 && { filters }),
     },
-    { encode: false }
+    { encodeValuesOnly: true }
   );
 
   const { data } = await api.get<ProductsResponse>(`/products?${query}`);
@@ -60,7 +63,6 @@ export async function getProducts(params: GetProductsParams = {}): Promise<Produ
   };
 }
 
-// Нормализация категорий вынесена в api/normalizers/category.ts, используется в getProductCategories
 export async function getProductCategories(): Promise<ProductCategoryResponse> {
   const res = await api.get<{ data?: RawCategory[] | { data?: RawCategory[] } }>(
     '/product-categories'
@@ -78,13 +80,12 @@ export type GetProductParams = {
   populate?: string[];
 };
 
-/** Тип ответа бэка по одному товару — один тип данных, без приведения через as */
 export async function getProduct(
   id: number | string,
   params: GetProductParams = {}
 ): Promise<ProductResponse> {
   const { populate = ['images', 'productCategory'] } = params;
-  const query = qs.stringify({ populate }, { encode: false });
+  const query = qs.stringify({ populate }, { encodeValuesOnly: true });
   const url = query ? `/products/${id}?${query}` : `/products/${id}`;
   const { data } = await api.get<{ data: ProductApi }>(url);
   return { data: normalizeProduct(data.data) };
@@ -95,17 +96,8 @@ export function getProductImageUrl(product: Product): string | undefined {
   return Array.isArray(images) && images[0] ? images[0].url : undefined;
 }
 
-function hasDataKey(obj: object): boolean {
-  return isObservable(obj) ? has(obj, 'data') : 'data' in obj;
-}
-
 export function getProductCategoryName(product: Product): string {
-  const catRaw = product.productCategory;
-  const cat: ProductCategory | undefined =
-    catRaw == null || typeof catRaw !== 'object'
-      ? undefined
-      : hasDataKey(catRaw as object)
-        ? (catRaw as { data: ProductCategory }).data
-        : (catRaw as ProductCategory);
-  return cat && typeof cat.name === 'string' ? cat.name : '';
+  const cat = product.productCategory;
+  const catName = cat && (typeof cat.name === 'string' ? cat.name : (cat as { title?: string }).title);
+  return typeof catName === 'string' ? catName : '';
 }

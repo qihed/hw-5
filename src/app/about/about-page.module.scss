@@ -1,0 +1,381 @@
+@use 'styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.hero {
+  background-color: #ffffff;
+  padding: $space-xl * 2 0;
+
+  @include md {
+    padding: 80px 0;
+  }
+}
+
+.heroContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-m;
+
+  @include md {
+    padding: 0 40px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.heroTitle {
+  margin-bottom: $space-m;
+}
+
+.heroText {
+  color: $font-hover;
+  margin-bottom: $space-m;
+  line-height: 1.6;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.heroImage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 384px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba($brand, 0.06) 0%, rgba($brand, 0.02) 100%);
+
+  @include lg {
+    height: 400px;
+  }
+}
+
+.heroSvg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.stats {
+  padding: $space-xl 0;
+  background-color: $brand;
+}
+
+.statsContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-m;
+
+  @include md {
+    padding: 0 40px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-l;
+  }
+}
+
+.statItem {
+  text-align: center;
+  color: $brand-white;
+}
+
+.statNumber {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: $space-xxs;
+
+  @include md {
+    font-size: 44px;
+  }
+}
+
+.statLabel {
+  font-size: 14px;
+  opacity: 0.9;
+
+  @include md {
+    font-size: 16px;
+  }
+}
+
+.features {
+  padding: 80px 0;
+
+  @include md {
+    padding: 100px 0;
+  }
+}
+
+.featuresContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-m;
+
+  @include md {
+    padding: 0 40px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.featuresHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.featuresTitle {
+  margin-bottom: $space-m;
+}
+
+.featuresSubtitle {
+  max-width: 640px;
+  margin: 0 auto;
+  color: $font-hover;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-m;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-l;
+  }
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-l;
+  }
+}
+
+.featureCard {
+  background-color: #ffffff;
+  padding: $space-m;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: rgba($brand, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-m;
+  color: $brand;
+}
+
+.featureTitle {
+  margin-bottom: $space-xxs;
+}
+
+.featureDescription {
+  font-size: 14px;
+  color: $font-hover;
+  line-height: 1.5;
+}
+
+.team {
+  padding: 80px 0;
+  background-color: #ffffff;
+
+  @include md {
+    padding: 100px 0;
+  }
+}
+
+.teamContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $space-m;
+
+  @include md {
+    padding: 0 40px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.teamHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.teamTitle {
+  margin-bottom: $space-m;
+}
+
+.teamSubtitle {
+  max-width: 640px;
+  margin: 0 auto;
+  color: $font-hover;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+  }
+}
+
+.teamMember {
+  text-align: center;
+}
+
+.teamAvatar {
+  position: relative;
+  width: 192px;
+  height: 192px;
+  margin: 0 auto $space-m;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.teamAvatarImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.teamAvatarImg {
+  object-fit: cover;
+}
+
+.teamAvatarImg {
+  object-fit: cover;
+}
+
+.teamAvatarImg {
+  object-fit: cover;
+}
+
+.teamName {
+  margin-bottom: $space-xxs;
+}
+
+.teamRole {
+  color: $font-hover;
+  font-size: 14px;
+}
+
+.cta {
+  padding: 80px 0;
+
+  @include md {
+    padding: 100px 0;
+  }
+}
+
+.ctaContent {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 $space-m;
+  text-align: center;
+}
+
+.ctaTitle {
+  margin-bottom: $space-m;
+}
+
+.ctaText {
+  color: $font-hover;
+  margin-bottom: $space-l;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: $space-m;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-s $space-l;
+  min-height: 52px;
+  background-color: $brand;
+  color: $brand-white;
+  text-decoration: none;
+  border-radius: $border-radius;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $brand-hover;
+  }
+
+  &:active {
+    background-color: $brand-active;
+  }
+}
