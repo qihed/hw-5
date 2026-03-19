@@ -1,0 +1,75 @@
+@use 'styles/variables' as *;
+
+.container {
+  padding: 24px 16px;
+
+  @include sm {
+    padding: 32px 24px;
+  }
+
+  @include md {
+    padding: 48px 40px;
+  }
+
+  @include lg {
+    padding: 60px 80px;
+  }
+
+  @include xl {
+    padding: 60px 100px;
+  }
+}
+
+.start {
+  transform: rotate(180deg);
+}
+
+.back {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 24px;
+  text-decoration: none;
+  color: inherit;
+
+  @include md {
+    padding-bottom: 32px;
+  }
+}
+
+.backButton {
+  @extend .back;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  text-align: left;
+  font: inherit;
+}
+
+.text {
+  padding: 20px 0 24px 0;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: bold;
+
+  @include md {
+    padding: 24px 0 32px 0;
+    font-size: 28px;
+  }
+
+  @include lg {
+    font-size: 32px;
+  }
+}
+
+.field {
+  width: 100%;
+}
+
+.skeletonSingle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

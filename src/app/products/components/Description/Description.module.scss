@@ -1,0 +1,35 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 16px 24px;
+
+  @include sm {
+    padding: 60px 24px 32px;
+  }
+
+  @include md {
+    width: 80%;
+    padding: 80px 40px 40px;
+  }
+
+  @include lg {
+    width: 60%;
+    padding: 90px 0 45px;
+  }
+
+  @include xl {
+    width: 40%;
+    padding: 100px 0 50px;
+  }
+}
+
+.text {
+  text-align: center;
+}

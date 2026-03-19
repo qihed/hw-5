@@ -1,0 +1,145 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  width: 100%;
+  gap: $space-xl;
+  margin-bottom: 24px;
+
+  @include sm {
+    padding: 0 24px;
+  }
+
+  @include md {
+    padding: 0 40px;
+    margin-bottom: 30px;
+  }
+
+  @include lg {
+    padding: 0 80px;
+    margin-bottom: 35px;
+  }
+
+  @include xl {
+    padding: 0 100px;
+  }
+}
+
+.fieldSearch {
+  display: flex;
+  flex-direction: column;
+  gap: $space-m;
+  width: 100%;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: $space-xl;
+  }
+}
+
+.input {
+  flex: 1;
+}
+
+.clearSearchBtn {
+  flex-shrink: 0;
+  background-color: $accent-red-500;
+  color: $white;
+  border: 1px solid $accent-red-500;
+
+  &:hover {
+    background-color: $accent-red-400;
+    border-color: $accent-red-400;
+  }
+}
+
+.filtersRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-m;
+  width: 100%;
+
+  @include md {
+    gap: $space-l;
+  }
+}
+
+.filterIconWrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dropdown {
+  align-self: flex-start;
+}
+
+.clearBtn {
+  align-self: flex-start;
+  background-color: $accent-red-500;
+  color: $white;
+  border: 1px solid $accent-red-500;
+
+  &:hover {
+    background-color: $accent-red-400;
+    border-color: $accent-red-400;
+  }
+}
+
+.priceFilter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-m;
+
+  @include md {
+    gap: $space-l;
+  }
+}
+
+.priceInput {
+  width: 100px;
+
+  @include md {
+    width: 120px;
+  }
+}
+
+.numFrame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  padding-top: 16px;
+  gap: $space-l;
+
+  @include md {
+    padding-top: 24px;
+    gap: $space-xl;
+  }
+}
+
+.text {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: bold;
+
+  @include md {
+    font-size: 28px;
+  }
+
+  @include lg {
+    font-size: 32px;
+  }
+}
+
+.textNum {
+  font-weight: 700;
+  font-style: bold;
+  color: $brand;
+}

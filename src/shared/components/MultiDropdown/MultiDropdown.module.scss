@@ -1,0 +1,83 @@
+@use 'styles/variables' as *;
+
+.root {
+  position: relative;
+}
+
+.mddFrame {
+  position: absolute;
+  top: calc(100% + #{$space-xxs});
+  left: 0;
+  min-width: 100%;
+  width: max-content;
+  max-height: 280px;
+  overflow-y: auto;
+  background-color: $brand-white;
+  box-shadow: 0 4px 12px rgba($black, 0.15);
+  z-index: 10;
+}
+
+.mddFrameItem {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  background-color: $brand-white;
+  padding: $space-s $space-xs;
+  height: 52px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease, color 120ms ease;
+
+  &:hover {
+    background-color: $brand-disabled;
+  }
+}
+
+.noCheckbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+
+  &:checked {
+    color: $brand;
+  }
+}
+
+.triggerWrap {
+  cursor: pointer;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.triggerWrapActive {
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid $brand;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.borderStyle {
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease;
+  transform-origin: center;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}

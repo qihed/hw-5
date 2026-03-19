@@ -1,0 +1,17 @@
+@use 'styles/variables' as *;
+
+.container {
+  max-width: 680px;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 32px;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+

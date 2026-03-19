@@ -1,0 +1,49 @@
+@use 'styles/variables' as *;
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 40px;
+
+  @include md {
+    gap: 30px;
+    padding-bottom: 55px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+
+  @include lg {
+    padding-bottom: 65px;
+    grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
+  }
+}
+
+.cardLink {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favoriteTopRight {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  border-color: $gray-200;
+  background: $white;
+
+  &:hover {
+    border-color: $danger-200;
+    color: $danger-500;
+    background: $white;
+  }
+}

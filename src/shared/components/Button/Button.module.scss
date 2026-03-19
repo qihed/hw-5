@@ -1,0 +1,45 @@
+@use 'styles/variables' as *;
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 0px solid $brand-white;
+  padding: $space-s $space-l;
+  min-height: 52px;
+  gap: $space-xxs;
+  background-color: $brand;
+  color: $brand-white;
+
+  &:hover {
+    background-color: $brand-hover;
+  }
+  &:active {
+    background-color: $brand-active;
+  }
+  &:disabled {
+    background-color: $brand-disabled;
+    cursor: default;
+    &:hover {background-color: $brand-disabled;}
+  }
+
+  &.buttonLoading:hover {
+    background-color: $brand;
+  }
+
+  &.textButton {
+    font-family: 'Roboto', sans-serif;
+    color: $brand-white;
+    font-size: 18px;
+    font-style: normal;
+  }
+}
+
+.loader-white {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $brand-white;
+}

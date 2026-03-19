@@ -1,0 +1,43 @@
+@use 'styles/variables' as *;
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-xxs;
+  border: 1px solid rgba($black, 0.12);
+  border-radius: $border-radius;
+  padding: $space-xs $space-s;
+  min-height: 52px;
+  background: $white;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color: $brand-white;
+
+  &::placeholder {
+    color: $font-hover;
+  }
+
+  &:focus {
+    color: $font-hover;
+    border: none;
+  }
+}
+
+.inputBeforeSlot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.inputAfterSlot {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
