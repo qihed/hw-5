@@ -1,0 +1,177 @@
+@use 'styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  background: linear-gradient(to bottom, $white, rgba($gray-50, 0.35));
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 26rem;
+  padding-bottom: 1rem;
+
+  @include md {
+    gap: 3rem;
+    max-width: 28rem;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @include md {
+    gap: 1.25rem;
+  }
+}
+
+.logoMark {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+
+  @include sm {
+    width: 104px;
+    height: 104px;
+  }
+
+  @include md {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.logoWordmark {
+  width: min(200px, calc(100vw - 8rem));
+  height: auto;
+  flex-shrink: 0;
+
+  @include sm {
+    width: min(210px, calc(100vw - 9rem));
+  }
+
+  @include md {
+    width: 220px;
+    max-width: none;
+  }
+}
+
+.ctaColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 20rem;
+
+  @include md {
+    flex-direction: row;
+    align-items: stretch;
+    gap: $space-s;
+    max-width: 22rem;
+  }
+}
+
+.goToSite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  text-align: center;
+  padding: $space-xs $space-m;
+  border-radius: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+
+  @include md {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+  }
+  text-decoration: none;
+  color: $brand-white;
+  background-color: $brand;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba($black, 0.06);
+
+  &:hover {
+    background-color: $brand-hover;
+    box-shadow:
+      0 4px 6px -1px rgba($black, 0.08),
+      0 2px 4px -2px rgba($black, 0.06);
+  }
+
+  &:active {
+    background-color: $brand-active;
+  }
+}
+
+.shareButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: $space-xxs;
+  width: 100%;
+  min-height: 44px;
+  text-align: center;
+  padding: $space-xs $space-m;
+  margin: 0;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  color: $brand-dark;
+  background-color: $brand-surface;
+  border: 1px solid $brand;
+
+  @include md {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+  }
+  box-shadow: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: $brand-surface-hover;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $brand-surface-active;
+  }
+
+  &:disabled {
+    cursor: default;
+    color: $gray-500;
+    background-color: $gray-100;
+    border-color: $gray-200;
+  }
+
+  .shareButtonLoader {
+    color: $brand-dark;
+  }
+}
